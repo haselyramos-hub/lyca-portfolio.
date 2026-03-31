@@ -1,15 +1,15 @@
 :root {
-  --bg: #060606;
-  --surface: rgba(12, 12, 12, 0.92);
-  --surface-soft: rgba(18, 18, 18, 0.88);
-  --surface-strong: #101010;
-  --text: #f3eadf;
-  --muted: #b9aa97;
-  --line: rgba(197, 117, 28, 0.24);
-  --accent: #b96a11;
-  --accent-bright: #f09321;
-  --accent-soft: rgba(240, 147, 33, 0.14);
-  --shadow: 0 30px 80px rgba(0, 0, 0, 0.58);
+  --bg: #faf4ee;
+  --surface: rgba(255, 255, 255, 0.96);
+  --surface-soft: rgba(255, 255, 255, 0.9);
+  --surface-strong: #ffffff;
+  --text: #1a1a1a;
+  --muted: #5e5e5e;
+  --line: rgba(193, 103, 68, 0.15);
+  --accent: #c16744;
+  --accent-bright: #d47653;
+  --accent-soft: rgba(193, 103, 68, 0.1);
+  --shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -25,11 +25,15 @@ body {
   min-height: 100vh;
   font-family: "Manrope", sans-serif;
   color: var(--text);
-  background:
-    radial-gradient(circle at 20% 10%, rgba(240, 147, 33, 0.2), transparent 18rem),
-    radial-gradient(circle at 85% 20%, rgba(185, 106, 17, 0.24), transparent 22rem),
-    radial-gradient(circle at 50% 100%, rgba(240, 147, 33, 0.12), transparent 24rem),
-    linear-gradient(180deg, #050505 0%, #090909 45%, #040404 100%);
+  background: linear-gradient(-45deg, #faf4ee, #fdf8f4, #f4eee6, #faf4ee);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 body::before {
@@ -212,8 +216,28 @@ a {
 
 .button-primary {
   background: linear-gradient(180deg, var(--accent-bright), var(--accent));
-  color: #130a02;
-  box-shadow: 0 0 30px rgba(240, 147, 33, 0.24);
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(193, 103, 68, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.button-primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: skewX(-20deg);
+  animation: shine 3s infinite 2s; /* delays the start slightly */
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  15% { left: 200%; }
+  100% { left: 200%; }
 }
 
 .button-primary:hover {
@@ -534,9 +558,9 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(240, 147, 33, 0.1);
-  border: 1px solid rgba(240, 147, 33, 0.2);
-  color: #f09321;
+  background: rgba(193, 103, 68, 0.1);
+  border: 1px solid rgba(193, 103, 68, 0.2);
+  color: #c16744;
   padding: 0.4rem 0.9rem;
   border-radius: 99px;
   font-size: 0.75rem;
