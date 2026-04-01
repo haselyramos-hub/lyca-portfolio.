@@ -26,9 +26,9 @@
       </button>
       <nav class="site-nav">
         <a href="#about">About</a>
-        <a href="#projects">Work</a>
+        <a href="#" onclick="openModal('modal-projects'); return false;">Work</a>
         <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
+        <a href="#" onclick="openModal('modal-contact'); return false;">Contact</a>
       </nav>
     </header>
 
@@ -47,8 +47,8 @@
             Hi! I am Venizza (Lyca), a dedicated Virtual Assistant and HR Payroll Specialist. I specialize in providing comprehensive remote support, payroll management, data entry, and administrative tasks. I am highly adaptable and ready to help businesses efficiency remotely.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#projects">View Experience</a>
-            <a class="button button-secondary" href="#contact">Get In Touch</a>
+            <a class="button button-primary" href="#" onclick="openModal('modal-projects'); return false;">View Experience</a>
+            <a class="button button-secondary" href="#" onclick="openModal('modal-contact'); return false;">Get In Touch</a>
           </div>
         </div>
 
@@ -101,7 +101,11 @@
         </div>
       </section>
 
-      <section class="section-panel reveal" id="projects">
+      <div class="modal" id="modal-projects">
+        <div class="modal-backdrop" onclick="closeModal('modal-projects')"></div>
+        <div class="modal-dialog">
+          <button class="modal-close" onclick="closeModal('modal-projects')" aria-label="Close modal">&times;</button>
+          <div class="section-panel" id="projects">
         <div class="section-intro">
           <p class="eyebrow">Experience</p>
           <h2>Professional history characterized by precision and employee support.</h2>
@@ -141,7 +145,9 @@
             </p>
           </article>
         </div>
-      </section>
+          </div>
+        </div>
+      </div>
 
       <section class="section-panel reveal" id="skills">
         <div class="section-intro">
@@ -177,7 +183,11 @@
         </div>
       </section>
 
-      <section class="section-panel reveal contact-panel" id="contact">
+      <div class="modal" id="modal-contact">
+        <div class="modal-backdrop" onclick="closeModal('modal-contact')"></div>
+        <div class="modal-dialog">
+          <button class="modal-close" onclick="closeModal('modal-contact')" aria-label="Close modal">&times;</button>
+          <div class="section-panel contact-panel" id="contact">
         <div class="section-intro">
           <p class="eyebrow">Contact</p>
           <h2>Reach out for inquiries or HR operations support.</h2>
@@ -197,7 +207,9 @@
             <p>09994112591</p>
           </div>
         </div>
-      </section>
+          </div>
+        </div>
+      </div>
     </main>
   </div>
 
